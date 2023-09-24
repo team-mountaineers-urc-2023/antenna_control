@@ -1,0 +1,19 @@
+<launch>
+	<arg name="servo_position_topic" default="/servo_position"/>
+	<arg name="servo_position_service" default="/set_servo_position"/>
+
+	<arg name="pwm_pin" default="12"/>
+	<arg name="pwm_freq" default="400"/>
+	<arg name="initial_pos" default="50"/>
+	<arg name="servo_pos_per_second" default="25"/>
+
+	<node name="joy_node" pkg="joy" type="joy_node" ns="arm">
+		<param name="servo_position_topic" value="$(arg servo_position_topic)"/>
+		<param name="servo_position_service" value="$(arg servo_position_service)"/>
+
+		<param name="pwm_pin" value="$(arg pwm_pin)"/>
+		<param name="pwm_freq" value="$(arg pwm_freq)"/>
+		<param name="initial_pos" value="$(arg initial_pos)"/>
+		<param name="servo_pos_per_second" value="$(arg servo_pos_per_second)"/>
+	</node>
+</launch>
